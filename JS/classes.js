@@ -93,25 +93,9 @@ class Fighter extends Sprite {
         }
     }
 
-    // draw() {
-    //     // Attack box
-    //     if (this.isAttacking) {
-    //         context.fillStyle = 'green';
-    //         context.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
-    //     }
-
-    //     // Player/Enemy
-    //     context.fillStyle = this.color;
-    //     context.fillRect(this.position.x, this.position.y, this.width, this.height);
-    // }
-
     attack() {
         this.switchSprite('attack1');
         this.isAttacking = true;
-
-        // setTimeout(() => {
-        //     this.isAttacking = false;
-        // }, 100);
     }
 
     takeHit() {
@@ -130,10 +114,6 @@ class Fighter extends Sprite {
         this.attackBox.position.y = this.position.y + this.attackBox.offset.y;
 
         this.draw();
-        // if (this.dead) {
-        //     return;
-        // }
-        // this.animateFrame();
 
         if (!this.dead) {
             this.animateFrame();
@@ -171,12 +151,6 @@ class Fighter extends Sprite {
         else {
             this.velocity.y += gravity;
         }
-
-        // // Attack box
-        // if (this.isAttacking) {
-        //     context.fillStyle = 'green';
-        //     context.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
-        // }
     }
 
     switchSprite(sprite) {

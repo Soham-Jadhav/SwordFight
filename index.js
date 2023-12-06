@@ -74,7 +74,6 @@ let player = new Fighter({
             framesMax: 6
         },
         takeHit: {
-            // imageSrc: './assets/samuraiMack/Take Hit - white silhouette.png',
             imageSrc: './assets/samuraiMack/Take Hit.png',
             framesMax: 4
         }
@@ -215,7 +214,6 @@ function init() {
                 framesMax: 6
             },
             takeHit: {
-                // imageSrc: './assets/samuraiMack/Take Hit - white silhouette.png',
                 imageSrc: './assets/samuraiMack/Take Hit.png',
                 framesMax: 4
             }
@@ -312,9 +310,6 @@ function animate() {
     animationId = requestAnimationFrame(animate);
 
     background.update();
-    // context.fillStyle = 'black';
-    // context.fillRect(0, 0, canvas.width, canvas.height);
-
     shop.update();
 
     // Contrast between players & background
@@ -326,7 +321,6 @@ function animate() {
 
     // Player movement
     player.velocity.x = 0;
-    // player.switchSprite('idle');
     if (keys.a.pressed && player.lastKey !== 'd') {
         player.velocity.x = -5;
         player.switchSprite('run');
@@ -375,12 +369,10 @@ function animate() {
         player.isAttacking &&
         player.frames === 4
     ) {
-        console.log('Collision detected: Player attacked');
         player.isAttacking = false;
         enemy.takeHit();
 
         if (enemy.health <= 100) {
-            // enemyHealthElem.style.width = (enemy.health + '%');
             gsap.to('#enemyHealth', {
                 width: enemy.health + '%'
             });
@@ -398,12 +390,10 @@ function animate() {
         enemy.isAttacking &&
         enemy.frames === 2
     ) {
-        console.log('Collision detected: Enemy attacked');
         enemy.isAttacking = false;
         player.takeHit();
 
         if (player.health <= 100) {
-            // playerHealthElem.style.width = (player.health + '%');
             gsap.to('#playerHealth', {
                 width: player.health + '%'
             });
@@ -420,30 +410,24 @@ function animate() {
         player.health = 1000;
         enemy.health = 1000;
     }
-
 }
-
-// animate();
 
 addEventListener('keydown', ({ key }) => {
     if (!player.dead) {
         switch (key) {
             case ' ':
-                console.log('player attack');
                 keys.space.pressed = true;
                 player.attack();
 
                 break;
 
             case 'd':
-                console.log('right');
                 keys.d.pressed = true;
                 player.lastKey = 'd';
 
                 break;
 
             case 'w':
-                console.log('jump');
                 if (player.position.y + player.height >= canvas.height - 95) {
                     player.velocity.y = -17;
                 }
@@ -451,7 +435,6 @@ addEventListener('keydown', ({ key }) => {
                 break;
 
             case 'a':
-                console.log('left');
                 keys.a.pressed = true;
                 player.lastKey = 'a'
 
@@ -462,14 +445,12 @@ addEventListener('keydown', ({ key }) => {
     if (!enemy.dead) {
         switch (key) {
             case 'ArrowRight':
-                console.log('ArrowRight');
                 keys.ArrowRight.pressed = true;
                 enemy.lastKey = 'ArrowRight';
 
                 break;
 
             case 'ArrowUp':
-                console.log('ArrowUp');
                 if (enemy.position.y + enemy.height >= canvas.height - 95) {
                     enemy.velocity.y = -17;
                 }
@@ -477,7 +458,6 @@ addEventListener('keydown', ({ key }) => {
                 break;
 
             case 'ArrowLeft':
-                console.log('ArrowLeft');
                 keys.ArrowLeft.pressed = true;
                 enemy.lastKey = 'ArrowLeft';
 
@@ -485,7 +465,6 @@ addEventListener('keydown', ({ key }) => {
 
 
             case 'ArrowDown':
-                console.log('enemy attack');
                 keys.space.pressed = true;
                 enemy.attack();
 
@@ -500,41 +479,32 @@ addEventListener('keydown', ({ key }) => {
 addEventListener('keyup', ({ key }) => {
     switch (key) {
         case 'd':
-            console.log('right');
             keys.d.pressed = false;
 
             break;
 
         case 'w':
-            console.log('jump');
-
             break;
 
         case 'a':
-            console.log('left');
             keys.a.pressed = false;
 
             break;
 
         case 'ArrowRight':
-            console.log('ArrowRight');
             keys.ArrowRight.pressed = false;
 
             break;
 
         case 'ArrowUp':
-            console.log('ArrowUp');
-
             break;
 
         case 'ArrowLeft':
-            console.log('ArrowLeft');
             keys.ArrowLeft.pressed = false;
 
             break;
 
         case ' ':
-            console.log('attack');
             keys.space.pressed = false;
 
             break;

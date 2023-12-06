@@ -11,15 +11,12 @@ function determineWinner(player1, player2, timerId) {
     clearTimeout(timerId);
 
     if (player1.health === player2.health) {
-        // alert('It\'s a draw!');
         finalWinnerElem.innerHTML = "Tie";
     }
     else if (player1.health > player2.health) {
-        // alert(`You win!`);
         finalWinnerElem.innerHTML = `Player 1 Wins!!!`;
     }
     else if (player1.health < player2.health) {
-        // alert(`You loose!`);
         finalWinnerElem.innerHTML = `Player 2 Wins!!!`;
     }
 
@@ -44,21 +41,6 @@ function decreaseTimer() {
         timerElem.innerHTML = timer;
     }
     else if (timer <= 0) {
-        console.log("Times up!!!");
-
         determineWinner(player, enemy, timerId);
-        // displayTextElem.style.display = 'flex';
-        // if(player.health === enemy.health){
-        //     // alert('It\'s a draw!');
-        //     displayTextElem.innerHTML = "Tie";
-        // }
-        // else if(player.health > enemy.health){
-        //     // alert(`You win!`);
-        //     displayTextElem.innerHTML = `Player 1 Wins!!!`;
-        // }
-        // else if(player.health < enemy.health){
-        //     // alert(`You loose!`);
-        //     displayTextElem.innerHTML = `Player 2 Wins!!!`;
-        // }
     }
 }

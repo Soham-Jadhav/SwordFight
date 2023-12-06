@@ -3,6 +3,12 @@ Engage in intense battles in this Multiplayer-player fighting game. Choose your 
 
 You can play the game here: https://sj21031-sword-fight.netlify.app/ 
 
+<br>
+
+![image](https://github.com/Soham-Jadhav/SwordFight/assets/98579549/2cc9cfb8-196b-4af0-aeae-04fad9262c02)
+
+<br>
+
 ## Player Movements
 ### Player 1 (Red samurai)
 A - Move left
